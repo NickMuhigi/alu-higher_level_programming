@@ -1,2 +1,23 @@
 #!/bin/bash
-python3 -m compileall $PYFILE -b 
+
+if [ -z "$PYFILE" ]; then
+    echo "Error: Environment variable \$PYFILE is not set."
+    exit 1
+fi
+
+if [ ! -f "$PYFILE" ]; then
+    echo "Error: File '$PYFILE' does not exist."
+    exit 1
+fi
+
+output_filename="${PYFILE}c"
+
+echo "Compiling $PYFILE ..."
+python -m py_compile "$PYFILE"
+
+if [ -f "__pycache__/$output_filename" ]; then
+    mv "__pycache__/$output_filename" "$output_filename"
+    echo "Compilation successful. Output filename: $output_filename"
+else
+    echo "Compilation failed."
+fi 

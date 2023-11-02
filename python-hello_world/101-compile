@@ -1,5 +1,2 @@
 #!/bin/bash
-python3 -m compileall -b "$PYFILE"
-compiled_file="__pycache__/${PYFILE}c"
-bytecode_length=$(wc -c < "$compiled_file")
-echo $bytecode_length
+python3 -m compileall $PYFILE -b 

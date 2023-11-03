@@ -1,13 +1,2 @@
 #!/bin/bash
-
-# Check if the environment variable $PYFILE is set
-if [[ -z "${PYFILE}" ]]; then
-  echo "The environment variable $PYFILE is not set. Please set it to the Python script file you want to compile."
-  exit 1
-fi
-
-# Compile the Python script file
-python3 -m compileall "${PYFILE}"
-
-# Print a message to the user
-echo "Compiled Python script file ${PYFILE} successfully." 
+python3 -m compileall $PYFILE -b 

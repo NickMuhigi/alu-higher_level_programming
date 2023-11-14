@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-"""Square class defination"""
+"""Square class definition"""
 
 
 class Square:
-    """square body"""
+    """Square body"""
 
     def __init__(self, size=0):
-        """square contructor 
+        """Square constructor 
         Args: size: length of a side of Square
         """
         self.__size = size
 
     @property
     def size(self):
-        """"The propery of size as the length 
+        """The property of size as the length 
         of a side of Square
         Raises:
-            TypeError: if size != int
-            ValueErrorr: if size < 0
+            TypeError: if size is not an integer
+            ValueError: if size is less than 0
         """
         return self.__size
 

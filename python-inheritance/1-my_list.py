@@ -1,10 +1,27 @@
 #!/usr/bin/python3
-"""defines class MyList"""
+# class 'Rectangle' that inherits from,
+# 'BaseGeometry' (7-base_geometry.py)
+"""
+    define a class 'Rectangle' inheriting from 'BaseGeometry'
+"""
+
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
-class MyList(list):
-    """class that inherits from list
-    with public instance method to print sorted list"""
+class Rectangle(BaseGeometry):
+    """
+        representation of 'Rectangle'
+    """
 
-    def print_sorted(self):
-        print(sorted(self))
+    def __init__(self, width, height):
+        """
+            intialize a new 'Rectangle'
+            Args:
+                width (int): width of the new rectangle
+                height (int): height of the new rectangle
+        """
+
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height
